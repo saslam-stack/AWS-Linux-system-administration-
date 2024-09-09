@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH AWS EC2</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>How to SSH into AWS Linux EC2 instance</h1>
+    <hr>
+    <P>SSH to Windows machine is different to Linux and mac operating system. 
+        Please follow below steps depending on your operating system. 
+    </P>
+    <H2>How to SSH Windows machine: </H2>
+    <P>To connect to an Amazon Linux EC2 instance (Download PuTTY to SSH 
+        into the Amazon EC2 instance). To avoid time out, Open putty.exe and 
+        Configure PuTTY timeout to keep the PuTTY session open for a longer 
+        period of time (select connection and Set Seconds between keepalives 
+        to 30). 
+    </P>
+    <img src="./images/Pic1.png" alt="PuTTY Configuration1">
+    <p>Paste the Public DNS or IPv4 address of the AWS Linux Ec2 instance  
+        (Public DNS or IPv4 address can be found in the details section of  
+        the EC2 instance on AWS management console e.g. 34.222.246.129). 
+    </p>
+    <img src="./images/pic2.png" alt="EC2 instance public IP address">
+    <p>In puTTY browse and select the AWS private key (.ppk file) that was 
+        downloaded during the launch of the AWS EC2 instance. In puTTY click 
+        on the connections, expand SSH, expand Auth, click on credentials 
+        and browse private key file for authentication to upload AWS secret 
+        keys), click open at the bottom of the puTTY window and click on 
+        open again. When prompted login as, enter: ec2-user 
+    </p>
+    <img src="./images/pic3.png" alt="Putty Configuration2">
+    <h2>How to Create Keypair</h2>
+    <p>To SSH into AWS EC2 instance, Create a key pair when launch an EC2 instance. Below picture explains AWS Keypair creation.</p>
+    <img src="./images/pic4.png" alt="AWS Management console, .ppk key pair creation">
+    <p>Below picture shows, PuTTY successful login to AWS EC2 instance. </p>
+    <img src="./images/pic5.png" alt="EC2 successful login">
+    <h2>How to SSH Linux and mac operating system: </h2>
+    <p>Select and download PEM private key file format at the time of creating AWS Linux EC2 instance.
+    </p>
+    <img src="./images/pic6.png" alt="key pair generation for mac and Linux">
+    <p>Make a note of the Public DNS or IPv4 address of the AWS Linux Ec2 
+        instance (Public DNS or IPv4 address can be found in the details 
+        section of the EC2 instance on AWS management console e.g. 
+        34.222.246.129).
+    </p>
+    <img src="./images/pic7.png" alt="">
+    <p>
+    Open a terminal window, and change directory cd to the directory 
+        where the cvpkey.pem file was downloaded. For example, if the 
+        cvpkey.pem file was saved to your Downloads directory, run this 
+        command:   cd ~/Downloads <br>
+   
+    Change the permissions on the key to be read-only, by running this 
+        command: chmod 400 cvpkey.pem <br>
+
+    Run the this  command  ssh -i cvpkey.pem ec2-user@<public-ip> 
+        (replace <public-ip> with the PublicIP address you copied earlier) 
+        e.g. ssh -i cvpkey.pem ec2-user@34.222.246.129 <br>
+    
+    Type yes when prompted to allow the first connection to this 
+        remote SSH server. No password would be required because you are 
+        using key pair authentication.
+
+    </p>
+
+
+
+
+
+
+    
+</body>
+</html>

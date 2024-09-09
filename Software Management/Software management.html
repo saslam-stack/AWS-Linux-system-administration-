@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux software management</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<section>
+<h1>Software management on AWS Linux EC2 instance</h1>
+<hr>
+</section>
+<section>
+<p id="cent">SSH instructions for windows and Linux/ mac operating 
+    systems have different SSH instructions
+</p>
+</section>
+<H2>Step 1:</H2>
+<br>
+<p>SSH to connect to an Amazon Linux EC2 instance (Download PuTTY to SSH into 
+    the Amazon EC2 instance). To avoid time out, Open putty.exe and Configure 
+    PuTTY timeout to keep the PuTTY session open for a longer period of time 
+    (select connection and Set Seconds between keepalives to 30). 
+</p>
+<br>
+<img src="./Images/pic1.png" alt="PuTTY Configration">
+<br>
+<p>Paste the Public DNS or IPv4 address of the AWS Linux Ec2 instance  
+    (Public DNS or IPv4 address can be found in the details section of  
+    the EC2 instance on AWS management console e.g. 34.222.246.129).
+</p>
+<br>
+<img src="./Images/pic2.png" alt="AWS EC2 instance">
+<br>
+<p>In puTTY browse and select the AWS private key (.ppk file) that was 
+    downloaded during the launch of the AWS EC2 instance. In puTTY click on 
+    the connections, expand SSH, expand Auth, click on credentials and browse 
+    private key file for authentication to upload AWS secret keys), click open 
+    at the bottom of the puTTY window and click on open again. When prompted 
+    login as, enter: ec2-user  
+</p>
+<br>
+<img src="./Images/pic3.png" alt="puTTY Configration">
+<br>
+<h2>How to Create AWS EC2 Keypair:</h2>
+<br>
+<p>To SSH into AWS EC2 instance, Create a key pair when launch an EC2 instance. Below picture explains AWS Keypair creation.
+
+</p>
+<br>
+<img src="./Images/pic4.png" alt="AWS EC2 keypair creation">
+<br>
+<h2>Step2 </h2>
+<br>
+<p>To query repositories for available updates you need to be in that         
+    specific folder e.g. I have a company folder called Dio_ltd, to validate 
+    that you are in the Dio_ltd home folder, enter cd Dio_ltd 
+</p>
+<br>
+<img src="./Images/pic5.png" alt="PuTTY, Dio_ltd folder">
+<br>
+<p>To check for available updates enter sudo yum -y check-update</p>
+<br>
+<img src="./Images/pic6.png" alt="PuTTY printscreen">
+<br>
+<p>To apply security-related updates, enter sudo yum update --security and 
+    press Enter. 
+</p>
+<br>
+<img src="./Images/pic7.png" alt="PuTTY printscreen">
+<br>
+<p>To update packages, enter sudo yum -y upgrade and press Enter.</p>
+<br>
+<img src="./Images/pic8.png" alt="puTTY printscreen">
+<br>
+<p>Pic. PuTTY shows no updates available. Once the sudo yum -y upgrade 
+    command is ran, the packages are updated and the system will let you know 
+    that you are running the current updated version. 
+</p>
+    
+</body>
+</html>

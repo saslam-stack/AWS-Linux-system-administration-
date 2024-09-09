@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Linux Backup</title>
+</head>
+<body>
+    <h1>How to create and log a backup in Linux</h1>
+    <hr>
+    <p>You can create a backup of an entire file structure. To save time, I have already created following folder structure (if need help in creating folders and directories, please read this article <a href="https://mypublicbucketforyou.s3.eu-west-2.amazonaws.com/Linux/AWS+Linxu+folder+and+file+creation.pdf" target="_blank">How to create company folder structure.</a></p>
+    <p>/home/ec2-user/Wateredge_Ltd/ <br />
+        /home/ec2-user/Wateredge_Ltd/HR/ <br />
+        /home/ec2-user/Wateredge_Ltd/HR/New_recruitment.csv Old_recruitment.csv <br />
+        /home/ec2-user/Wateredge_Ltd/Sales/ <br />
+        /home/ec2-user/Wateredge_Ltd/Sales /touch New_sales.csv Old_sales.csv <br />
+        /home/ec2-user/Wateredge_Ltd/Marketing/ <br />
+        /home/ec2-user/Wateredge_Ltd/HR/Assessments.csvv <br />
+        /home/ec2-user/Wateredge_Ltd/Marketing/New_compagin.csv Old_compagin.csv <br />
+        /home/ec2-user/Wateredge_Ltd/Finance/ <br />
+        /home/ec2-user/Wateredge_Ltd/Finance/New_payroll.csv Old_payroll.csv <br />
+        /home/ec2-user/Wateredge_Ltd/SharedFolders/ <br />
+        </p>
+    <h2>Creating a backup:</h2>
+    <p>You can use tar to create a backup. To ensure that you are in the /home/ec2-user/ folder, enter the following command into the terminal and press Enter: pwd</p>
+    <img src="./images/Pic1.png" alt="screenshot">
+    <p>To validate that the Wateredge_Ltd folder exists, enter the following command into the terminal and press Enter: <br> 
+        ls –R Wateredge_Ltd <br>
+       The outcome should look like below <br>
+    </p>
+    <img src="./images/pic2.png" alt="screenshot">
+    <p>To back up the entire CompanyA folder structure recursively, enter the following command and press Enter: <br>
+        tar -csvpzf backup.Wateredge_Ltd.tar.gz Wateredge_Ltd <br>
+        Expected output should look like below
+        </p>
+    <img src="./images/pic3.png" alt="screenshot">
+    <p>To verify that the archive was created, enter the following command and press Enter: ls</p>
+    <img src="./images/pic4.png" alt="screenshot">
+    <p>The backup. Wateredge_Ltd.tar.gz folder contains all the folders and files in the Wateredge_Ltd folder. You can copy it and unzip it to get the entire structure on another location or host.</p>
+    <h2>Log the backup:</h2>
+    <p>You create a file for logging the date, time, and file name of the backup tar file that you created. This file indicates when you created backups and could be useful to avoid creating unnecessary backups in the future. To navigate to the Wateredge_Ltd folder, enter the following command into the terminal and press Enter:  cd Wateredge_Ltd</p>
+    <img src="./images/pic5.png" alt="screenshot">
+    <p>To create an empty backup file named backups.csv, enter the following command and press Enter:  touch SharedFolders/backups.csv <br>
+        To add the date, time, and file name to the backups.csv file, enter the following command and press Enter: <br>
+        echo "24 June 2024, 13:35, backup. Wateredge_Ltd.tar.gz" | sudo tee SharedFolders/backups <br>
+        Expected outcome should look like below
+        </p>
+    <img src="./images/Pic6.png" alt="screenshot">
+    <p>To display the content of the file, enter the following command and press Enter:
+        cat SharedFolders/backups
+        </p>
+    <img src="./images/Pic7.png" alt="screenshot">
+
+
+</body>
+</html>

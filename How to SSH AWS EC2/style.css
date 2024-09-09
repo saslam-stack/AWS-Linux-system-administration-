@@ -1,0 +1,18 @@
+h1 {
+    color: black;
+    text-align: center;
+}
+body {
+    color: black;
+    background-color: white;
+    margin: 5em; 30em, 5em, 30em;
+
+}
+img {
+    height: 300px;
+    width: 700px;
+    background-color: black;
+    margin: 30px;    
+    padding: 20px;
+    border: solid gray;
+}

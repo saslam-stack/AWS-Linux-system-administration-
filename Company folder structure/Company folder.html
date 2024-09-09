@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux folders and directories</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<h1>How to create folder structure, make directories and files on AWS Linux EC2 instance.</h1>
+<hr>
+<h2>Step 1: </h2>
+<p>SSH into AWS Linux EC2 instance. You can read this article <a href="https://mypublicbucketforyou.s3.eu-west-2.amazonaws.com/Linux/How+to+SSH+AWS+Linux+EC2+instance.pdf" target="_blank">How to SSH into AWS EC2 instance</a> for SSH instructions.</p>
+<p>After successfull SSH, your Putty screen should look like below screen shot</p>
+<img src="./Images/img1.png" alt="Putty print screen">
+<h2>Step 2: </h2>
+<p>To validate that you are in the home folder of your current user, enter 
+    pwd and press Enter. If you’re not in the home folder, enter cd /home/ec2
+    user 
+</p>
+<img src="./Images/pic2.png" alt="Putty print screen">
+<p>In the terminal, enter mkdir Dio_Ltd and press Enter to create the top
+    level folder. 
+</p>
+<p>To change directories, enter cd Dio_Ltd and press Enter. </p>
+<p>To create all the sub folders, enter mkdir Sales HR Markeeting CR and 
+    press Enter. 
+</p>
+<p>To validate that the folders were created, enter ls and press Enter.</p>
+<img src="./Images/pic3.png" alt="company structure Linux">
+<p>To change your current directory to the CR directory, enter cd CR and 
+    press Enter.
+</p>
+<p>To create the empty files inside the CR folder, enter touch 
+    New_compaign.csv New_compaign.csv and press Enter.
+</p>
+<p>To change your current directory to Sales, enter cd ../Sales and press 
+    Enter.
+</p>
+<p>To create the empty files inside the Sales folder, enter touch 
+    Salesforcast.csv Historicsales.csv and press Enter (Empty files in Marketing & HR directories can be made in similar way 
+    stated above).
+</p>
+<p>To validate that the files were created, enter ls and press Enter.</p>
+<img src="./Images/pic4.png" alt="">
+<p>To validate that all the files and folders from the Dio_ltd folder down 
+    have been created, enter cd .. to change directory to Dio_ltd and ls -laR 
+    and press Enter.
+</p>
+<img src="./Images/pic5.png" alt="">
+<h2>How to Delete and reorganize folders:</h2>
+<p>To copy the CR folder and its content to Markeeting folder, enter cp -r CR 
+    Markeeting and press Enter. 
+</p>
+<p>To verify that the folder and the content was copied, enter ls 
+    Markeeting/CR and press Enter. 
+</p>
+<p>To remove the CR folder from the Dio_ltd folder structure. You need to 
+    empty CR directory first enter rm CR/New_compaign.csv, enter rmdir CR and 
+    press Enter.
+</p>
+<img src="./Images/pic6.png" alt="">
+<h2>How to Change folder name</h2>
+<p>You can use move command (mv) to change folder name/fix spelling errors. 
+    To change Markeeting to Marketing use this command mv Markeeting Marketing 
+</p>
+<img src="./Images/pic7.png" alt="">
+
+
+
+    
+</body>
+</html>
